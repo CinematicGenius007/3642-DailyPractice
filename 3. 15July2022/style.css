@@ -1,0 +1,54 @@
+html {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.main-heading {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.i-2 {
+    display: none !important;
+}
+
+.head-div:hover .i-1 {
+    display: none;
+}
+
+.head-div:hover .i-2 {
+    display: inline !important;
+}
+
+.external-video {
+    height: 40vw;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #84cc16;
+}
+
+.prog-bar::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 1rem;
+}
+
+.prog-bar::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top, 
+                                 rgba(255, 255, 255, .25), 
+                                 rgba(0, 0, 0, .25)),
+         -webkit-linear-gradient(left, #09c, #f44);
+  
+      border-radius: 1rem; 
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
