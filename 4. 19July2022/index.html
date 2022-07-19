@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&PT+Sansdisplay=swap" rel="stylesheet">
+
+        <style>
+            body div::nth-child(1) {
+                padding: 0 20px;
+            }
+        </style>
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="m-0 p-0 w-full h-screen bg-cover bg-no-repeat bg-center" style="background-image: url('image.jpg');">
+        <div>
+            <div class="w-full text-indigo-200 text-center py-8 bg-lime-600 text-2xl font-semibold">This is the first div tag.</div>
+        </div>
+        <br><br>
+        <div class="w-full text-center text-3xl font-medium py-4 text-white">This is another div.</div>
+        <div style="padding: 0 20px;">
+            <div class="w-full py-8 bg-lime-600 flex justify-center h-40 space-x-2 text-sm">
+                <div class="h-full w-1/12 bg-purple-500 text-center">Element 1</div>
+                <div class="h-full w-1/12 bg-gray-700 border-8 border-orange-600 text-center pt-2 text-white">Element 2</div>
+                <div class="h-full w-1/12 bg-blue-700 px-4 flex flex-col items-center justify-center text-yellow-300"><div>Element</div><div>3</div></div>
+            </div>
+        </div>
+        <div class="text-center border-8 border-blue-700 bg-gray-100 py-4">1</div>
+        <div class="text-center border-8 border-blue-700 bg-gray-100 py-4">2</div>
+        <div class="text-center border-8 border-blue-700 bg-gray-100 py-4">3</div>
+        <script src="index.js"></script>
+    </body>
+</html>
