@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+
+            #main-div {
+                font-size: 32px;
+            }
+
+            #div1 {
+                font-size: 2em;
+            }
+
+            #div2 {
+                font-size: 1rem;
+            }
+
+            .rd {
+                background: radial-gradient(black, rgba(12,45,123, 0.6), rgba(234, 92, 125, 0.7));
+            } 
+
+            table, tr, th, td {
+                border: 0.4rem solid cyan;
+                padding: 1rem;
+            }
+        </style>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-indigo-400 to-red-500/60">
+        <div id="main-div">
+            This is main div.
+            <div id="div1">This is div1.</div>
+            <div id="div2">This is div2.</div>
+            <div>This is div3.</div>
+            <div class="text-7xl my-24 w-full text-center text-gray-700">TITLE</div>
+            <div class="w-72 h-72 rd mx-auto"></div>
+            <table class="mx-auto my-16 p-4">
+                <tr>
+                    <th colspan="3">Chitkara University</th>
+                </tr>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Remarks</th>
+                </tr>
+                <tr>
+                    <th>1.</th>
+                    <td>Abhinav</td>
+                    <td>Great but not good!</td>
+                </tr>
+                <tr>
+                    <th>2.</th>
+                    <td>Hello</td>
+                    <td>Good but not great!</td>
+                </tr>
+            </table>
+        </div>
+	    <script src="index.js"></script>
+    </body>
+</html>
