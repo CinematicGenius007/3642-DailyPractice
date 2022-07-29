@@ -1,0 +1,31 @@
+.main-heading {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.i-2 {
+    display: none !important;
+}
+
+.head-div:hover .i-1 {
+    display: none;
+}
+
+.head-div:hover .i-2 {
+    display: inline !important;
+}
+
+.external-video {
+    height: 40vw;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: darkslategray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #84cc16;
+}
