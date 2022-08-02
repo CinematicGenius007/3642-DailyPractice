@@ -24,54 +24,74 @@
         <script src="tailwindcss.js"></script>
     </head>
     <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-cyan-400 to-orange-500/60 select-none">
+        <p id="wow"></p>
         <script>
-            let ct = document.createElement("p");
-            let ob = {
-                name: "Ayush",
-                age: 20,
-                skills: ["None", "Absolutely None", "Seriously he doesn't know anything!", "🙄"],
-            };
+            let btn = document.createElement("button");
+            btn.appendChild(document.createTextNode("DO NOT CLICK THIS BUTTON!"));
+            btn.classList.add("py-1", "px-3", "bg-neutral-200", "border", "border-neutral-500", "mx-auto", "my-16", "block");
 
+            document.querySelector("body").prepend(btn);
 
-
-            ct.appendChild(document.createTextNode(ob.name));
-            ct.classList.add("text-7xl", "text-center", "my-12");
-
-            let age = document.createElement("div");
-            age.appendChild(document.createTextNode(`is ${ob.age} years old`));
-            age.classList.add("text-5xl", "text-center", "my-12", "text-gray-700");
-
-            let skills = document.createElement("div");
-            skills.appendChild(document.createTextNode("and has skills as follows:"));
-            skills.classList.add("text-4xl", "text-center", "my-16", "text-emerald-700");
-
-            document.querySelector("body").appendChild(ct);
-            document.querySelector("body").appendChild(age);
-            document.querySelector("body").appendChild(skills);
-
-            for (let i = 0; i < ob.skills.length; i++) {
-                let temp = document.createElement("div");
-                temp.appendChild(document.createTextNode(ob.skills[i]));
-                temp.classList.add("text-3xl", "my-8", "text-center", "text-rose-900");
-                document.querySelector("body").appendChild(temp);
+            btn.onclick = () => {
+                alert("I TOLD YOU NOT TO CLICK THIS BUTTON. NOW YOU ARE HACKED AND PROBABLY SCREWD!!");
+                let wow = document.querySelector("#wow");
+                wow.classList.add("my-6", "py-6", "text-justify", "text-4xl", "text-emerald-700", "w-4/6", "mx-auto", "border-b-4", "border-red-800");
+                wow.appendChild(document.createTextNode("SEE YOU ARE SCREWD NOW. LIKE YOU JUST HAD TO DO IT, DIDN'T YOU?!"));
             }
-
-            let r = Number(prompt("Enter the value of 'r':", "0"));
-            12
-            if (isNaN(r)) {
-                let res = document.createElement("div");
-                res.classList.add("text-2xl", "text-center", "my-12", "text-red-900");
-                res.appendChild(document.createTextNode(`Wrong value of radius!`));
-                document.querySelector("body").appendChild(res);
-            } else {
-                let res = document.createElement("div");
-                res.classList.add("text-2xl", "text-center", "my-12", "text-green-900");
-                res.appendChild(document.createTextNode(`Area of circle with radius(${r}) = ${Math.PI * r * r}`));
-                document.querySelector("body").appendChild(res);
-            }
-
-            
         </script>
+
+        <form id="some" class="my-6 py-6 flex flex-col items-center block">
+            <label class="block my-1" for="n1">Total Balls: <input class="border border-neutral-500 px-2 py-1" type="text" name="n1" id="n1" /></label>
+            <label class="block my-1" for="n2">Total Team Members: <input class="border border-neutral-500 px-2 py-1" type="text" name="n2" id="n2" /></label>
+            <button class="block my-1 py-1 px-3 bg-neutral-200 border border-neutral-500" type="submit">FIND</button>
+        </form>
+
+        <div id="answer" class="hidden min-w-min w-96 mx-auto text-center text-5xl shadow backdrop-filter backdrop-blur bg-neutral-500 bg-opacity-40 px-6 py-12 rounded-lg mb-12"></div>
+        <div id="even" class="hidden min-w-min w-96 mx-auto text-center text-5xl shadow backdrop-filter backdrop-blur bg-neutral-500 bg-opacity-40 px-10 py-12 rounded-lg mb-12"></div>
+        <div id="prime" class="hidden min-w-min w-96 mx-auto text-center text-5xl shadow backdrop-filter backdrop-blur bg-neutral-500 bg-opacity-40 px-10 py-12 rounded-lg mb-12"></div>
+
+        <script>
+            let form = document.querySelector("#some");
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                let n1 = Number(document.querySelector("#n1").value);
+                let n2 = Number(document.querySelector("#n2").value);
+
+                document.querySelector("#answer").classList.remove("hidden");
+                document.querySelector("#even").classList.remove("hidden");
+                // document.querySelector("#prime").classList.remove("hidden");
+
+                // if (!isNaN(n1) && !isNaN(n2)) {
+                //     document.querySelector("#answer").innerText = (n1 + n2);
+                //     document.querySelector("#even").innerText = ((n1 + n2) % 2 === 0 ? "Is Even" : "Not Even");
+                //     let isPrime = true;
+                //     let i = 2;
+                //     while (i < n1 + n2) {
+                //         if ((n1 + n2) % i === 0) {
+                //             isPrime = false;
+                //             break;
+                //         }
+                //         i++;
+                //     }
+                //     document.querySelector("#prime").innerText = (isPrime ? "Is Prime" : "Not Prime");
+                    
+                // } else {
+                //     document.querySelector("#answer").classList.add("text-red-700");
+                //     document.querySelector("#answer").appendChild(document.createTextNode("ER!"));
+                // }
+
+                if (!isNaN(n1) && !isNaN(n2)) {
+                    if (n2 > n1) {
+                        document.querySelector("#answer").innerText = "Wrong data!";
+                    } else {
+                        document.querySelector("#answer").innerText = `Equity: ${Math.floor(n1 / n2)}`;
+                        document.querySelector("#even").innerText = `Left: ${n1 % n2}`;
+                    }
+                }
+
+            }
+        </script>
+
 	    <script src="index.js"></script>
     </body>
 </html>

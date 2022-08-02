@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+        </style>
+
+        <script src="tailwindcss.js"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-cyan-400 to-orange-500/60 select-none">
+        <script>
+            let ct = document.createElement("p");
+            let ob = {
+                name: "Ayush",
+                age: 20,
+                skills: ["None", "Absolutely None", "Seriously he doesn't know anything!", "🙄"],
+            };
+
+
+
+            ct.appendChild(document.createTextNode(ob.name));
+            ct.classList.add("text-7xl", "text-center", "my-12");
+
+            let age = document.createElement("div");
+            age.appendChild(document.createTextNode(`is ${ob.age} years old`));
+            age.classList.add("text-5xl", "text-center", "my-12", "text-gray-700");
+
+            let skills = document.createElement("div");
+            skills.appendChild(document.createTextNode("and has skills as follows:"));
+            skills.classList.add("text-4xl", "text-center", "my-16", "text-emerald-700");
+
+            document.querySelector("body").appendChild(ct);
+            document.querySelector("body").appendChild(age);
+            document.querySelector("body").appendChild(skills);
+
+            for (let i = 0; i < ob.skills.length; i++) {
+                let temp = document.createElement("div");
+                temp.appendChild(document.createTextNode(ob.skills[i]));
+                temp.classList.add("text-3xl", "my-8", "text-center", "text-rose-900");
+                document.querySelector("body").appendChild(temp);
+            }
+
+            (() => {
+                let r = 12;
+                
+                if (isNaN(r)) {
+                    let res = document.createElement("div");
+                    res.classList.add("text-2xl", "text-center", "my-12", "text-red-900");
+                    res.appendChild(document.createTextNode(`Wrong value of radius!`));
+                    document.querySelector("body").appendChild(res);
+                } else {
+                    let res = document.createElement("div");
+                    res.classList.add("text-2xl", "text-center", "my-12", "text-green-900");
+                    res.appendChild(document.createTextNode(`Area of circle with radius(${r}) = ${Math.PI * r * r}`));
+                    document.querySelector("body").appendChild(res);
+                }
+            })(5000);
+
+            
+        </script>
+	    <script src="index.js"></script>
+    </body>
+</html>
