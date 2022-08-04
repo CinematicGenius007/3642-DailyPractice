@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+
+            #box, #ans {
+                transition: height 1s 0.2s ease-in-out, width 1s 0.2s ease-in-out, border-radius 0.3s ease-in-out;
+                background-color: rgb(17 24 39);
+                padding: 3rem 4rem;
+                border-radius: 1rem;
+                color: white;
+                font-size: 2rem;
+            }
+
+            #rounded {
+                transition: border-radius 1s 0.1s ease-in-out;
+            }
+
+            
+
+        </style>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-cyan-400 to-red-800/60 select-none">
+        <form id="square" class="py-12 space-y-8">
+            <label class="block w-full text-3xl text-center" for="side">Enter the number to calculate sum of first n even Numbers:</label>
+            <input class="block mx-auto rounded border border-black py-1 px-3 text-lg" type="number" id="side" name="side" />
+            <button class="block py-2 px-6 bg-indigo-500 text-4xl mx-auto mt-4 rounded text-gray-900" type="submit">Calculate</button>
+        </form>
+        
+        <div class="flex justify-center py-8">
+            <div id="box" classs="py-12 px-16 text-5xl text-white">0</div>
+        </div>
+
+        <form id="calc" class="py-12 space-y-8">
+            <label class="block w-full text-3xl text-center">Enter the numbers to calculate the unexpected:</label>
+            <input class="block mx-auto rounded border border-black py-1 px-3 text-lg" type="number" id="val1" name="side" />
+            <input class="block mx-auto rounded border border-black py-1 px-3 text-lg" type="number" id="val2" name="side" />
+            <input class="block mx-auto rounded border border-black py-1 px-3 text-lg" type="number" id="val3" name="side" />
+            <button class="block py-2 px-6 bg-indigo-500 text-4xl mx-auto mt-4 rounded text-gray-900" type="submit">Calculate</button>
+        </form>
+        
+        <div class="flex justify-center py-8">
+            <div id="ans" classs="py-12 px-16 text-5xl text-white">0</div>
+        </div>
+
+        <div class="my-24">
+            <button id="round" class="mx-auto py-2 px-6 text-2xl bg-emerald-600 border border-gray-600 block">Make it round</button>
+            <div id="rounded" class="h-48 w-48 my-12 bg-violet-800 mx-auto"></div>
+        </div>
+
+        <!-- <div id="negate" class="fixed mx-auto py-6 px-8"></div> -->
+
+        <script>
+            $("#square").submit(e => {
+                e.preventDefault();
+                let val = $("#side").val();
+                let sum = 0;
+                for (let i = 2; i <= val; i += 2) sum += i;
+                $("#box").text(sum);
+            })
+
+            $("#calc").submit(e => {
+                e.preventDefault();
+                let val1 = $("#val1").val();
+                let val2 = $("#val2").val();
+                let val3 = $("#val3").val();
+                if (val1 > val2) {
+                    alert("Second value should be larger than the first one!");
+                } else {
+                    let count = 0;
+                    for (let i = val1; i <= val2; i++) {
+                        if (i % val3 == 0) count++;
+                    }
+                    $("#ans").text(count);
+                }
+            });
+
+            $("#round").click(() => {
+                if ($("#rounded").css("border-radius") === '0px')
+                    $("#rounded").css("border-radius", "50%");
+                else
+                    $("#rounded").css("border-radius", "0px");
+            })
+        </script>
+    </body>
+</html>
