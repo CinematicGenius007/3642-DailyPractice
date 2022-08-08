@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+
+            
+
+        </style>
+
+        <script src="tailwindcss.js"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-cyan-400 to-red-800/60">
+        <div id="demo" ondblclick="document.querySelector('#demo').innerHTML = func(2, 3)" class="flex justify-center cursor-pointer mx-auto px-6 py-6 text-2xl text-gray-900 bg-yellow-400">Hello World!</div>  
+
+        <!-- <div id="negate" class="fixed mx-auto py-6 px-8"></div> -->
+
+        <div class="my-12 mx-auto flex justify-center"><span id="ans" class="py-6 px-12 text-2xl text-gray-800 bg-neutral-300"></span></div>
+
+        <button id="dom" class="block mx-auto bg-gray-300 py-2 px-6 text-lg">See the magic!</button>
+
+        <script>
+            function func(p1, p2) {
+                console.log("called!");
+                return p1 * p2;
+            }
+
+            console.log(document.querySelector("#demo").ondbclick);
+
+            const isOdd = (i) => i % 2 != 0;
+            const filter = (arr, fn) => {
+                let res = [];
+                for (let i of arr) {
+                    if (fn(arr)) res.push(i);
+                }
+                return res;
+            }
+
+            $("#dom").click(() => {
+                $("#ans").text(filter([1,2,3,4,5,6,7,8], isOdd));
+            });
+
+
+        </script>
+    </body>
+</html>
