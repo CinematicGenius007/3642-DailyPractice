@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+
+            
+
+        </style>
+
+        <script src="tailwindcss.js"></script>
+</head>
+<body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-stone-400 via-amber-400 to-emerald-400">
+    <script>
+        let data = JSON.parse(localStorage.getItem("some"));
+        if (data) {
+            $("body").append($("<div class='text-4xl text-red-700 text-center'></div>").text(data.first)).append($("<div class='text-4xl text-red-700 text-center'></div>").text(data.second));
+            // localStorage.removeItem("some");
+        }
+    </script>
+</body>
+</html>
