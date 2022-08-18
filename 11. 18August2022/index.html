@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Jetbrains Mono', mono;
+            }
+
+            
+
+        </style>
+
+        <script src="tailwindcss.js"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-stone-400 via-amber-400 to-emerald-400">
+        <button id="dom" class="block font-semibold mx-auto bg-gray-300 py-2 px-6 text-xl my-12 rounded">See the magic!</button>
+
+        <script>
+            const func = (x, y) => x * y;
+            document.getElementById("dom").addEventListener('click', () => {
+                if (document.querySelector(".new-el")) {
+                    document.querySelector("body").removeChild(document.querySelector(".new-el"));
+                } else {
+                    let magic = document.createElement("p");
+                    magic.classList.add("text-center", "my-16", "text-4xl", "text-emerald-900", "new-el");
+                    magic.appendChild(document.createTextNode("Now this is what I call magic!"));
+                    document.querySelector("body").appendChild(magic);
+                }
+            });
+        </script>
+    </body>
+</html>
