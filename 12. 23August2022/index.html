@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Ubuntu', sans-serif;
+            }
+
+            input, input:focus, input:focus-visible, input:focus-within {
+                outline: 0 !important;
+                box-shadow: none !important;
+            }
+            
+
+        </style>
+
+        <script src="tailwindcss.js"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-stone-400 via-amber-400 to-emerald-400">
+        <input id="dom" type="text" class="block mx-auto bg-gray-300 py-2 px-6 text-xl my-12 rounded border-2 border-gray-700" placeholder="[5 - 9]" />
+
+        <script>
+            /*
+            2 types of errors:
+                1. Handled errors (runtime[exceptions] & compile time[error])
+                2. Unhandled errors [Memory limited exceeded error]
+            
+            Scripting languages are javascript, R, pHp, python [interpret -> line by line execution][no such thing as compile time error, all errors are shown the program has been executed]
+            */
+          
+            /*$("#dom").click(e => {
+            console.log(e.currentTarget);
+            try {
+                aletrt("hello");
+            } catch (err) {
+                console.warn(err.message);
+            }
+           });*/
+
+            let employees = [];
+
+            employees.push( {name:"George", age:32, retiredate:"March 12, 2014"} );
+            employees.push( {name:"Edward", age:17, retiredate:"June 2, 2023"} );
+            employees.push( {name:"Christine", age:58, retiredate:"December 20, 2036"} );
+            employees.push( {name:"Sarah", age:62, retiredate:"April 30, 2020"} );
+            employees.push( {name:"Paul", age:62, retiredate:"April 30, 2026"} );
+
+            employees.sort(function(a, b){
+            return a.age - b.age;
+            });
+
+            function CustomError(message = "Employee not found!") {
+                this.name = "InvalidEmployeeError";
+                this.message = message;
+            }
+
+            CustomError.prototype = Error.prototype;
+
+            document.getElementById("dom").onkeyup = e => {
+                if (e.keyCode === 13) {
+                    $(".mess").remove();
+                    $("#merr").remove();
+                    let n = e.target.value;
+                    function findE(n) {
+                        let emp = undefined;
+                        if (isNaN(n)) {
+                            emp = employees.filter(ep => ep.name === n);
+                            
+                        } else {
+                            emp = employees.filter(ep => ep.age === Number(n));
+                        }
+
+                        if (emp.length) {
+                            for (let i of emp) {
+                                // $("#mess").removeClass("hidden");
+                                // $("#ename").text(emp.name);
+                                // $("#ertd").text(emp.retiredate);
+                                $(`<div class="text-black text-2xl font-bold my-12 flex flex-col justify-start mx-auto py-6 px-8 w-max bg-indigo-400 rounded shadow shadow-black mess">
+                                    <div class="mb-6 text-4xl">Employee</div>
+                                    <div class="ml-4">Name: ${i.name}</div>
+                                    <div class="ml-4">Age: ${i.age}</div>
+                                    <div class="ml-4">RetireDate: ${i.retiredate}</div>
+                                </div>`).insertAfter("#dom");
+                            }
+                        } else {
+                            throw new CustomError()
+                        }
+                    } 
+
+                    try {
+                        findE(n);
+                    } catch (err) {
+                        // $(".mess").remove;
+                        // $("#merr").text(err.message);
+                        console.log(err);
+                        $(`<div id="merr" class="text-red-700 text-2xl font-bold my-12 text-center py-6 px-8">${err.message}</div>`).insertAfter("#dom");
+                    }
+                }
+            }
+
+           /* document.getElementById("dom").onkeyup = e => {
+                let n = e.target.value;
+                function evaluateNumber(n) {
+                    if (!isNaN(n)) {
+                        let num = Number(n);
+                        if (num < 5 || num > 9) throw "Number should be in range of 5 to 9";
+                        return num;
+                        // $("#mess").text(`Nice choice: ${num}`);
+                    } else {
+                        throw `Should be a number and not "${n}"`;
+                    }
+                }
+
+                try {
+                    $("#mess").text(`Nice choice: ${evaluateNumber(n)}`);
+                } catch (err) {
+                    $("#mess").text(err);
+                }
+           } */
+
+        </script>
+    </body>
+</html>
