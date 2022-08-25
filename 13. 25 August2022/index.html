@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None of anybody's business!">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Alert!</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                font-size: 16px;
+                font-family: 'Ubuntu', sans-serif;
+            }
+
+            input, input:focus, input:focus-visible, input:focus-within {
+                outline: 0 !important;
+                box-shadow: none !important;
+            }
+            
+
+        </style>
+
+        <script src="tailwindcss.js"></script>
+    </head>
+    <body class="min-h-screen overflow-y-auto flex- h-full w-full bg-gradient-to-b from-stone-400 via-amber-400 to-emerald-400">
+        <input id="dom" type="text" class="block mx-auto bg-gray-300 py-2 px-6 text-xl my-12 rounded border-2 border-gray-700" placeholder="[5 - 9]" />
+
+        <div class="flex flex-row flex-wrap justify-center items-center text-4xl con mb-12"></div>
+
+        <script>
+            document.getElementById("dom").onkeyup = (e) => {
+                if (e.keyCode == 13) {
+                    $(".con").empty();
+                    let n = e.target.value;
+                    if (!isNaN(n)) {
+                        n = Number(n);
+                        let _sum = 0;
+                        for (let i = 1; i <= n; i++) {
+                            _sum += i;
+                            setTimeout(() => {
+                                let tel = $("<div class='p-6 text-center'></div>").text(i);
+                                $(".con").append(tel);
+                                // $("body").scrollTop($("body")[0].scrollHeight);
+
+                                setTimeout(() => {
+                                    document.getElementsByTagName("body").scrollTop = document.getElementsByTagName("body").scrollHeight;
+                                }, 0);
+                            }, 100 * i);
+                        }
+                        // $(".con").append($("<div></div>").text(`Total Sum = ${_sum}`));
+
+                    }
+                }
+            }
+
+            function pr(i, j) { 
+                if (j === 0) throw "Dividing by zero."
+                return `This is called: ${i / j}`;
+            }
+
+            async function func(i, j) {
+                // let np = new Promise((res, rej) => {
+                //     setTimeout(() => res(12), 2000);
+                //     // rej("there you go?");
+                // });
+
+                // let ress = await np;
+                // console.log(ress);
+                let np = new Promise((resolve, reject) => {
+                    try {
+                        setTimeout(() => resolve(pr(i, j)), 2000);
+                    } catch (e) {
+                        // resolve(pr(i, j));
+                        setTimeout(() => reject(e), 1000);
+                    } 
+                    // else {
+                    //     // console.log("cl4");
+                    //     setTimeout(() => resolve(pr(i, j)), 2000);
+                    // }
+                }).catch(e => console.log(e));
+
+                let res = await np;
+                console.log(res);
+
+                // np.then((val) => {
+                //     // console.log(val);
+                //     pr(i, j);
+                // }, (val) => {
+                //     console.log(val);
+                // });
+
+                // .catch(e => console.log(e.message));
+                // let fc = await np;
+                // fc(i, j);
+            }
+
+            
+        </script>
+    </body>
+</html>
