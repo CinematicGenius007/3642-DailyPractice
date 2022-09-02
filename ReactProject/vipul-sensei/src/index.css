@@ -1,6 +1,14 @@
+:root {
+  --pc-1: #8D8741;
+  --pc-2: #659DBD;
+  --pc-3: #DAAD86;
+  --pc-4: #BC986A;
+  --pc-5: #FBEEC1;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Jetbrains Mono', 'Courgette', 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
