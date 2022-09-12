@@ -7,7 +7,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-cyan-400/60;
+    @apply bg-white/80;
 }
 
 ::-webkit-scrollbar-track {
