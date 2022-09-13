@@ -3,6 +3,7 @@ import Background from "./static/backgrounds/jeremy-perkins-uhjiu8FjnsQ-unsplash
 // import Sun from "./static/planets/sun.jpeg"
 import Mercury from "./static/planets/mercury.png";
 import Venus from "./static/planets/venus.png";
+import Earth from './static/planets/earth.png';
 import Mars from "./static/planets/mars.png";
 import Jupiter from "./static/planets/jupiter.png";
 import Saturn from "./static/planets/saturn.png";
@@ -29,7 +30,7 @@ function App() {
     >
       <div className="text-center mt-6 mb-4">
         <div>
-          <button className="mr-6 px-6 py-2 text-2xl rounded bg-gray-transparent border-2 border-white" onClick={() => onPlanet("Earth", 1.0)}>Earth</button>
+          {/*<button className="mr-6 px-6 py-2 text-2xl rounded bg-gray-transparent border-2 border-white" onClick={() => onPlanet("Earth", 1.0)}>Earth</button>*/}
           <input
               value={weight}
               onChange={(e) => setWeight(Number(e.currentTarget.value))}
@@ -41,11 +42,11 @@ function App() {
         </div>
         <div className="mt-8 mb-6 text-4xl">Your weight on {planet} on {Math.round(weight * ratio)} kg</div>
       </div>
-      <div className="w-full bg-gray-300/0 relative flex flex-wrap items-center justify-center space-y-8">
+      <div className="w-full bg-gray-300/0 relative flex flex-wrap items-center justify-center">
         <Planet image={Mercury} ratio={0.377} onClick={onPlanet} name={"Mercury"} />
         <Planet image={Venus} ratio={0.904} onClick={onPlanet} name={"Venus"} />
         <Planet image={Mars} ratio={0.38} onClick={onPlanet} name={"Mars"} />
-        {/*<Planet image={Sun} size={10} />*/}
+        <Planet image={Earth} ratio={1.0} onClick={onPlanet} name={"Earth"} />
         <Planet image={Jupiter} ratio={2.53} onClick={onPlanet} name={"Jupiter"} />
         <Planet image={Saturn} ratio={1.065} onClick={onPlanet} name={"Saturn"} />
         <Planet image={Uranus} ratio={0.886} onClick={onPlanet} name={"Uranus"} />
